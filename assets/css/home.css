@@ -1,0 +1,17 @@
+.team-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+.team-section h3 {
+  text-align: center;
+  color: #d4b52f;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 750;
+}
+
+/*# sourceMappingURL=home.css.map */
