@@ -1,5 +1,5 @@
 <?php
-class Game
+class GameModel
 {
     private ?int $id = null;
     private string $name;
