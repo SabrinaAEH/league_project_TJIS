@@ -19,7 +19,7 @@ class PlayerPerformanceModel
         $this->id = $id;
     }
     
-    public function getPlayer(): Player
+    public function getPlayer(): PlayerModel
     {
         return $this->player;
     }
@@ -29,7 +29,7 @@ class PlayerPerformanceModel
         $this->player = $player;
     }
     
-    public function getGame(): Game
+    public function getGame(): GameModel    
     {
         return $this->game;
     }
