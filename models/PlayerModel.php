@@ -4,7 +4,7 @@ class PlayerModel
 {
     private ? int $id = null;
 
-    public function __construct(private string $nickname, private string $bio, private Media $portrait, private Team $team)
+    public function __construct(private string $nickname, private string $bio, private MediaModel $portrait, private TeamModel $team)
     {
 
     }
@@ -39,22 +39,22 @@ class PlayerModel
         $this->bio = $bio;
     }
 
-    public function getPortrait(): Media
+    public function getPortrait(): MediaModel
     {
         return $this->portrait;
     }
 
-    public function setPortrait(Media $portrait): void
+    public function setPortrait(MediaModel $portrait): void
     {
         $this->portrait = $portrait;
     }
 
-    public function getTeam(): Team
+    public function getTeam(): TeamModel
     {
         return $this->team;
     }
 
-    public function setTeam(Team $team): void
+    public function setTeam(TeamModel $team): void
     {
         $this->team = $team;
     }

@@ -1,6 +1,6 @@
 <?php
 
-class Media {
+class MediaModel {
     // Propriétés correspondant à la structure de la table media
     private ?int $id;
     private string $url;

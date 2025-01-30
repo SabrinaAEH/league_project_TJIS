@@ -1,6 +1,6 @@
 <?php
 
-class Team {
+class TeamModel {
     // Propriétés correspondant à la structure de la table teams
     private int $id;
     private string $name;
