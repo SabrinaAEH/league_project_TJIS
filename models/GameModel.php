@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Models;
+
+use \DateTime;
+
 class GameModel
 {
     private ?int $id = null;
