@@ -8,16 +8,6 @@ use App\Models\TeamModel;
 use PDO;
 
 class PlayerManager extends AbstractManager
-<?php
-
-namespace App\Managers;
-
-use App\Models\PlayerModel;
-use App\Models\MediaModel;
-use App\Models\TeamModel;
-use PDO;
-
-class PlayerManager extends AbstractManager
 {
     public function getRandomPlayers(int $limit = 3): array
     {
