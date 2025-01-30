@@ -1,13 +1,12 @@
 <?php
 
-class PlayerPerformanceModel 
+namespace App\Models;
+
+class PlayerPerformanceModel
 {
-    private ? int $id = null;
+    private ?int $id = null;
 
-    public function __construct(private PlayerModel $player, private GameModel $game, private int $points, private int $assists)
-    {
-
-    }
+    public function __construct(private PlayerModel $player, private GameModel $game, private int $points, private int $assists) {}
 
     public function getId(): ?int
     {
@@ -18,7 +17,7 @@ class PlayerPerformanceModel
     {
         $this->id = $id;
     }
-    
+
     public function getPlayer(): PlayerModel
     {
         return $this->player;
@@ -28,8 +27,8 @@ class PlayerPerformanceModel
     {
         $this->player = $player;
     }
-    
-    public function getGame(): GameModel    
+
+    public function getGame(): GameModel
     {
         return $this->game;
     }
@@ -38,7 +37,7 @@ class PlayerPerformanceModel
     {
         $this->game = $game;
     }
-    
+
     public function getPoints(): int
     {
         return $this->points;
@@ -48,7 +47,7 @@ class PlayerPerformanceModel
     {
         $this->points = $points;
     }
-    
+
     public function getAssists(): int
     {
         return $this->assists;
@@ -58,5 +57,4 @@ class PlayerPerformanceModel
     {
         $this->assists = $assists;
     }
-    
 }
