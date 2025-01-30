@@ -8,19 +8,22 @@ class TeamManager extends AbstractManager {
     public function findFeaturedTeam(): ?TeamModel {
         $query = $this->db->prepare('
             SELECT 
-                t.id, t.name, t.description, 
-                m.url AS logo_url, m.alt AS logo_alt
-            FROM 
-                teams t
-            JOIN 
-                media m ON t.logo = m.id
-            WHERE 
-                t.name = :name
-        ');
-        
-        $query->bindValue(':name', 'Angry Owls');
-        $query->execute();
-        
+            teams.id AS team_id, 
+            teams.name AS team_name, 
+            teams.description AS team_description, 
+            media.url AS media_logo_url, 
+            media.alt AS media_logo_alt
+        FROM 
+            teams 
+        JOIN 
+            media ON teams.logo = media.id
+        WHERE 
+            teams.name = :team_name
+    ');
+    
+    $query->bindValue(':team_name', 'Angry Owls');
+    $query->execute();
+    
         $data = $query->fetch(\PDO::FETCH_ASSOC);
         
         if (!$data) {
@@ -41,7 +44,7 @@ class TeamManager extends AbstractManager {
         );
     }
 
-    // Autres méthodes potentielles
+    
     public function findAll(): array {
         $query = $this->db->query('SELECT * FROM teams');
         $teams = [];
