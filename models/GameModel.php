@@ -4,11 +4,11 @@ class GameModel
     private ?int $id = null;
     private string $name;
     private DateTime $date;
-    private int $team_1;
-    private int $team_2;
-    private int $winner;
+    private TeamModel $team_1;
+    private TeamModel $team_2;
+    private TeamModel $winner;
 
-    public function __construct(?int $id, string $name, DateTime $date, int $team_1, int $team_2, int $winner)
+    public function __construct(?int $id, string $name, DateTime $date, TeamModel $team_1, TeamModel $team_2, TeamModel $winner)
     {
         $this->id = $id;
         $this->name = $name;
@@ -46,29 +46,29 @@ class GameModel
         $this->date = $date;
     }
     /*------------------ Team 1 ------------------*/
-    public function getTeam1(): int
+    public function getTeam1(): TeamModel
     {
         return $this->team_1;
     }
-    public function setTeam1($team_1): void
+    public function setTeam1(TeamModel $team_1): void
     {
         $this->team_1 = $team_1;
     }
     /*------------------ Team 2 ------------------*/
-    public function getTeam2(): int
+    public function getTeam2(): TeamModel
     {
         return $this->team_2;
     }
-    public function setTeam2($team_2): void
+    public function setTeam2(TeamModel $team_2): void
     {
         $this->team_2 = $team_2;
     }
     /*------------------ Winner ------------------*/
-    public function getWinner(): int
+    public function getWinner(): TeamModel
     {
         return $this->winner;
     }
-    public function setWinner($winner): void
+    public function setWinner(TeamModel $winner): void
     {
         $this->winner = $winner;
     }
