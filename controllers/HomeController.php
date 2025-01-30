@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use team\TeamManager;
 
 class HomeController extends BaseController
 {

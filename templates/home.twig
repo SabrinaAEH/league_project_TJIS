@@ -9,17 +9,17 @@
     </section>
     
 
-    <section class="team-section">
-    <h2>{{ section_titles.teams }}</h2>
-        <div class="section-box">
-            <div class="team-cards">
-                {% for team in teams %}
-                    {% include 'components/team-card.twig' with { team: team } %}
-                {% endfor %}
-            </div>
+    {% if featured_team %}
+    <section class="featured-team">
+        <h2>{{ section_titles.teams }}</h2>
+        <div class="team-card">
+            <h3>{{ featured_team.name }}</h3>
+            <p>{{ featured_team.description }}</p>
+            <img src="{{ featured_team.logo.url }}" alt="{{ featured_team.logo.alt }}">
         </div>
     </section>
-
+    {% endif %}
+    
     <section class="players-section">
     <h2>{{ section_titles.players }}</h2>
         <div class="section-box"> 
