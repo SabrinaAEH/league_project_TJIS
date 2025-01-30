@@ -5,16 +5,15 @@ class TeamModel {
     private ?int $id;
     private string $name;
     private string $description;
-    private int $logo;
+    private MediaModel $logo;
 
     // Constructeur
-    public function __construct(string $name, string $description, int $logo, ?int $id) {
+    public function __construct(string $name, string $description, MediaModel $logo, ?int $id = null) {
         $this->name = $name;
         $this->description = $description;
         $this->logo = $logo;
         $this->id = $id;
     }
-
     // Getters
     public function getId(): int {
         return $this->id;
@@ -28,7 +27,7 @@ class TeamModel {
         return $this->description;
     }
 
-    public function getLogo(): int {
+    public function getLogo(): MediaModel {
         return $this->logo;
     }
 
@@ -45,14 +44,9 @@ class TeamModel {
         $this->description = $description;
     }
 
-    public function setLogo(int $logo): void {
+    public function setLogo(MediaModel $logo): void {
         $this->logo = $logo;
     }
 
-    // Méthode de validation
-    public function validate(): bool {
-        return !empty($this->name) && 
-               !empty($this->description) && 
-               $this->logo > 0;
-    }
+
 }
