@@ -16,16 +16,23 @@ class PlayerModel
 
     public function __construct(array $data)
     {
-        $this->hydrate($data);
-    }
-
-    private function hydrate(array $data)
-    {
-        foreach ($data as $key => $value) {
-            $method = 'set' . ucfirst($key);
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
+        if (isset($data['id'])) {
+            $this->setId($data['id']);
+        }
+        if (isset($data['nickname'])) {
+            $this->setNickname($data['nickname']);
+        }
+        if (isset($data['bio'])) {
+            $this->setBio($data['bio']);
+        }
+        if (isset($data['portrait']) && $data['portrait'] instanceof MediaModel) {
+            $this->setPortrait($data['portrait']);
+        }
+        if (isset($data['team']) && $data['team'] instanceof TeamModel) {
+            $this->setTeam($data['team']);
+        }
+        if (isset($data['performances']) && is_array($data['performances'])) {
+            $this->setPerformances($data['performances']);
         }
     }
 
