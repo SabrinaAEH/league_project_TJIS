@@ -1,16 +1,33 @@
 @import "../variables";
 
+h2 {
+  text-align: center;
+  font-family: $font-secondary;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  .team-section & {
+    color: $yellow;
+  }
+  .players-section & {
+    color: $pink;
+  }
+  .match-section & {
+    color: $blue;
+  }
+}
 .top-home {
-  width: 100%;
-  height: 10vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 40px;
-  background: url("../../images/home_background.png") no-repeat center
-    center/cover;
+  background: url("../images/home_background.png") no-repeat center top/cover;
+  max-width: 100%;
   h1 {
     text-align: center;
     position: relative;
@@ -27,4 +44,10 @@
     position: relative;
     top: 2rem;
   }
+}
+.section-box {
+  padding: 40px;
+  border: 1px solid $darkGrey;
+  margin: 20px;
+  color: $pink;
 }

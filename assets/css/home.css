@@ -1,12 +1,32 @@
+h2 {
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+.team-section h2 {
+  color: #d4b52f;
+}
+.players-section h2 {
+  color: #d97ab5;
+}
+.match-section h2 {
+  color: #45a0ec;
+}
+
 .top-home {
-  margin: 0 auto;
-  height: 30vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url("../images/home_background.png") no-repeat center center/cover;
+  padding: 40px;
+  background: url("../images/home_background.png") no-repeat center top/cover;
+  max-width: 100%;
 }
 .top-home h1 {
   text-align: center;
@@ -24,3 +44,12 @@
   position: relative;
   top: 2rem;
 }
+
+.section-box {
+  padding: 40px;
+  border: 1px solid #1c2541;
+  margin: 20px;
+  color: #d97ab5;
+}
+
+/*# sourceMappingURL=home.css.map */
