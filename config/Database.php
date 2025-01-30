@@ -3,48 +3,32 @@
 namespace App\Config;
 
 use PDO;
-use PDOException;
 use Dotenv\Dotenv;
 
 class Database
 {
-    private static $instance = null;
-    private $connection;
+    private static ?PDO $instance = null;
 
-    private function __construct()
-    {
-        // Charger les variables d'environnement
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-        $dotenv->load();
-
-        $host = $_ENV['DB_HOST'];
-        $port = $_ENV['DB_PORT'];
-        $user = $_ENV['DB_USERNAME'];
-        $password = $_ENV['DB_PASSWORD'];
-        $dbname = $_ENV['DB_NAME'];
-
-        $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8";
-
-        try {
-            $this->connection = new PDO($dsn, $user, $password, [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-            ]);
-        } catch (PDOException $e) {
-            die("Erreur de connexion à la base de données : " . $e->getMessage());
-        }
-    }
-
-    public static function getInstance()
+    public static function getInstance(): PDO
     {
         if (self::$instance === null) {
-            self::$instance = new self();
+            // Charger les variables d'environnement
+            $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+            $dotenv->load();
+
+            // Récupération des variables d'environnement
+            $host = $_ENV['Host'];
+            $dbname = $_ENV['BDD'];
+            $user = $_ENV['User'];
+            $password = $_ENV['Password'];
+
+            try {
+                self::$instance = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
+                self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (\PDOException $e) {
+                die("Erreur de connexion à la base de données : " . $e->getMessage());
+            }
         }
         return self::$instance;
-    }
-
-    public function getConnection()
-    {
-        return $this->connection;
     }
 }

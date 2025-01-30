@@ -10,7 +10,7 @@ abstract class AbstractManager
 
     public function __construct()
     {
-        // Utilisation de la connexion unique de Database.php
-        $this->db = Database::getInstance()->getConnection();
+        // ✅ Utilisation correcte de Database::getInstance()
+        $this->db = Database::getInstance();
     }
 }
