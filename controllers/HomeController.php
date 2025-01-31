@@ -28,6 +28,12 @@ class HomeController extends BaseController
         // Récupérer la team à la une
         $featuredTeam = $this->teamManager->findFeaturedTeam();
 
+        // Récupérer les joueurs de l'équipe à la une
+        $teamPlayers = [];
+        if ($featuredTeam) {
+            $teamPlayers = $this->playerManager->getPlayersByTeam($featuredTeam->getId());
+        }
+
         // Récupérer le dernier match
         $lastGame = $this->gameManager->findLastGame();
 
@@ -44,10 +50,11 @@ class HomeController extends BaseController
                 'players' => 'Les players à la une',
                 'matches' => 'Le Dernier Match'
             ],
-            'players' => $players,
-            'featured_team' => $featuredTeam,
-            'last_game' => $lastGame,
-            'last_game_formatted_date' => $lastGameFormattedDate // Passer la date formatée à Twig
+            'players' => $players,                  // 3 joueurs aléatoires
+            'team_players' => $teamPlayers,         // Joueurs de l'équipe à la une
+            'featured_team' => $featuredTeam,       // Information de l'équipe à la une
+            'last_game' => $lastGame,               // Dernier match
+            'last_game_formatted_date' => $lastGameFormattedDate // Date formatée du dernier match
         ]);
     }
 }

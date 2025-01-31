@@ -8,16 +8,20 @@ h2 {
   text-transform: uppercase;
   text-decoration: underline;
   text-underline-offset: 0.5rem;
+
   .team-section & {
     color: $yellow;
   }
+
   .players-section & {
     color: $pink;
   }
+
   .match-section & {
     color: $blue;
   }
 }
+
 .top-home {
   height: 20vh;
   display: flex;
@@ -28,6 +32,7 @@ h2 {
   padding: 40px;
   background: url("../images/home_background.png") no-repeat center top/cover;
   max-width: 100%;
+
   h1 {
     text-align: center;
     position: relative;
@@ -37,6 +42,7 @@ h2 {
     text-transform: uppercase;
     font-weight: 750;
   }
+
   p {
     text-align: center;
     font-size: 1.5rem;
@@ -45,12 +51,86 @@ h2 {
     top: 2rem;
   }
 }
+
 .section-box {
   padding: 40px;
   border: 1px solid $darkGrey;
   margin: 20px;
   color: $pink;
 }
+
+/* Section de l'équipe à la une */
+.featured-team {
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .team-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .team-logo {
+    width: 150px;
+    height: auto;
+  }
+
+  .team-details {
+    max-width: 400px;
+  }
+
+  .team-players {
+    margin-top: 20px;
+  }
+
+  .players-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .player-card {
+    border: 1px solid #1c2541;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    width: 200px; /* Limiter la taille des cards */
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      object-fit: cover;
+      max-width: 100px;  /* Portrait circulaire de joueur */
+      margin: 0 auto;
+    }
+
+    .player-name {
+      margin-top: 10px;
+      font-weight: bold;
+      color: $pink;  /* Couleur de votre choix pour le nom */
+      text-transform: uppercase;
+    }
+
+    .player-team {
+      color: $yellow;  /* Couleur de l'équipe */
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* Section des joueurs */
 .players-section {
   display: flex;
   flex-direction: column;
@@ -63,28 +143,46 @@ h2 {
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
+  }
 
-    .player-card {
-      border: 1px solid $darkGrey;
-      padding: 10px;
-      margin: 5px;
-      text-align: center;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-      img {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        object-fit: contain;
-      }
-      .player-name {
-        text-transform: uppercase;
-        color: $pink;
-      }
-      .player-team {
-        color: $yellow;
-      }
-    }
+  .player-card {
+    border: 1px solid #1c2541;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .player-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .player-name {
+    text-transform: uppercase;
+    color: $pink;
+  }
+
+  .player-team {
+    color: $yellow;
+  }
+}
+
+/* Section du dernier match */
+.match-section {
+  .teams-images {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .team-logo {
+    width: 100px;
+    height: auto;
   }
 }

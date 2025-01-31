@@ -8,30 +8,31 @@
         <p>Les players, les teams et l'actu des matchs</p>
     </section>
 
-    <!-- Section des équipes -->
+    <!-- Section de l'équipe à la une -->
     {% if featured_team %}
     <section class="featured-team">
         <h2>{{ section_titles.teams }}</h2>
         <div class="team-card">
-            <div class="team-info">
-                <img src="{{ featured_team.logo.url }}" alt="{{ featured_team.logo.alt }}" class="team-logo">
-                <div class="team-details">
-                    <h3>{{ featured_team.name }}</h3>
-                    <p>{{ featured_team.description }}</p>
-                </div>
-            </div>
-            <!-- Affichage des joueurs de la team à la une -->
+            <img src="{{ featured_team.logo.getUrl() }}" alt="{{ featured_team.logo.getAlt() }}" class="team-logo">
+            <h3>{{ featured_team.name }}</h3>
+            <p>{{ featured_team.description }}</p>
             <div class="team-players">
-                <h4>Joueurs</h4>
-                {% for player in featured_team.players %}
-                    <p>{{ player.nickname }}</p>
-                {% endfor %}
+                <h4>Joueurs de l'équipe à la une</h4>
+                <div class="players-list">
+                    {% for player in team_players %}
+                        <div class="player-card">
+                            <img src="{{ player.portrait.getUrl() }}" alt="Photo de {{ player.nickname }}">
+                            <p class="player-name">{{ player.nickname }}</p>
+                            <p class="player-team">{{ player.team.name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </section>
     {% endif %}
 
-    <!-- Section des joueurs -->
+    <!-- Section des joueurs à la une -->
     <section class="players-section">
         <h2>{{ section_titles.players }}</h2>
         <div class="player-cards">
@@ -41,7 +42,7 @@
         </div>
     </section>
 
-    <!-- Section des matchs -->
+    <!-- Section du dernier match -->
     {% if last_game %}
     <section class="match-section">
         <h2>{{ section_titles.matches }}</h2>
@@ -49,10 +50,9 @@
             <div class="match-card">
                 <h3>{{ last_game.name }}</h3>
                 <p>Date: {{ last_game_formatted_date }}</p>
-                <p>Score: {{ last_game.score }}</p>
                 <div class="teams-images">
-                    <img src="{{ last_game.team1.logo.url }}" alt="{{ last_game.team1.logo.alt }}" class="team-logo">
-                    <img src="{{ last_game.team2.logo.url }}" alt="{{ last_game.team2.logo.alt }}" class="team-logo">
+                    <img src="{{ last_game.team1.logo.getUrl() }}" alt="{{ last_game.team1.logo.getAlt() }}" class="team-logo">
+                    <img src="{{ last_game.team2.logo.getUrl() }}" alt="{{ last_game.team2.logo.getAlt() }}" class="team-logo">
                 </div>
             </div>
         </div>
