@@ -13,9 +13,13 @@
     <section class="featured-team">
         <h2>{{ section_titles.teams }}</h2>
         <div class="team-card">
-            <h3>{{ featured_team.name }}</h3>
-            <p>{{ featured_team.description }}</p>
-            <img src="{{ featured_team.logo.url }}" alt="{{ featured_team.logo.alt }}">
+            <div class="team-info">
+                <img src="{{ featured_team.logo.url }}" alt="{{ featured_team.logo.alt }}" class="team-logo">
+                <div class="team-details">
+                    <h3>{{ featured_team.name }}</h3>
+                    <p>{{ featured_team.description }}</p>
+                </div>
+            </div>
             <!-- Affichage des joueurs de la team à la une -->
             <div class="team-players">
                 <h4>Joueurs</h4>
@@ -44,8 +48,12 @@
         <div class="section-box">
             <div class="match-card">
                 <h3>{{ last_game.name }}</h3>
-                <p>Date: {{ last_game_formatted_date }}</p>  <!-- Affichage de la date formatée -->
+                <p>Date: {{ last_game_formatted_date }}</p>
                 <p>Score: {{ last_game.score }}</p>
+                <div class="teams-images">
+                    <img src="{{ last_game.team1.logo.url }}" alt="{{ last_game.team1.logo.alt }}" class="team-logo">
+                    <img src="{{ last_game.team2.logo.url }}" alt="{{ last_game.team2.logo.alt }}" class="team-logo">
+                </div>
             </div>
         </div>
     </section>
