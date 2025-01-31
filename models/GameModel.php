@@ -1,6 +1,8 @@
 <?php
 namespace App\Models;
 
+use DateTime;
+
 class GameModel
 {
     private ?int $id = null;
@@ -10,7 +12,14 @@ class GameModel
     private TeamModel $team_2;
     private TeamModel $winner;
 
-    public function __construct(?int $id, string $name, DateTime $date, TeamModel $team_1, TeamModel $team_2, TeamModel $winner)
+    public function __construct(
+        ?int $id,
+        string $name,
+        DateTime $date,
+        TeamModel $team_1,
+        TeamModel $team_2,
+        TeamModel $winner
+    )
     {
         $this->id = $id;
         $this->name = $name;

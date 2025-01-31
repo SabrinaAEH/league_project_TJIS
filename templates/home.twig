@@ -7,9 +7,8 @@
         <h1>Tout sur la league</h1>
         <p>Les players, les teams et l'actu des matchs</p>
     </section>
-    
-<<<<<<< HEAD
 
+    <!-- Section des équipes -->
     {% if featured_team %}
     <section class="featured-team">
         <h2>{{ section_titles.teams }}</h2>
@@ -17,45 +16,39 @@
             <h3>{{ featured_team.name }}</h3>
             <p>{{ featured_team.description }}</p>
             <img src="{{ featured_team.logo.url }}" alt="{{ featured_team.logo.alt }}">
+            <!-- Affichage des joueurs de la team à la une -->
+            <div class="team-players">
+                <h4>Joueurs</h4>
+                {% for player in featured_team.players %}
+                    <p>{{ player.nickname }}</p>
+                {% endfor %}
+            </div>
         </div>
     </section>
     {% endif %}
-    
-=======
-    <!-- Section des équipes -->
-    <section class="team-section">
-        <h2>{{ section_titles.teams }}</h2>
-        <div class="section-box">
-            <div class="team-cards">
-                {% for team in teams %}
-                    {% include 'components/team-card.twig' with { team: team } %}
-                {% endfor %}
-            </div>
-        </div>
-    </section>
 
     <!-- Section des joueurs -->
->>>>>>> 4d9685004fb19b6831d63d537cd32ba2886a9987
     <section class="players-section">
-    <h2>{{ section_titles.players }}</h2> 
-    <div class="player-cards">
-        {% for player in players %}
-            {% include 'components/player-card.twig' with { player: player } %}
-        {% endfor %}
-    </div>
-</section>
-
+        <h2>{{ section_titles.players }}</h2>
+        <div class="player-cards">
+            {% for player in players %}
+                {% include 'components/player-card.twig' with { player: player } %}
+            {% endfor %}
+        </div>
+    </section>
 
     <!-- Section des matchs -->
+    {% if last_game %}
     <section class="match-section">
         <h2>{{ section_titles.matches }}</h2>
-        <div class="section-box">  
-            <div class="match-cards">
-                {% for match in matches %}
-                    {% include 'components/match-card.twig' with { match: match } %}
-                {% endfor %}
+        <div class="section-box">
+            <div class="match-card">
+                <h3>{{ last_game.name }}</h3>
+                <p>Date: {{ last_game_formatted_date }}</p>  <!-- Affichage de la date formatée -->
+                <p>Score: {{ last_game.score }}</p>
             </div>
         </div>
     </section>
+    {% endif %}
 
 {% endblock %}

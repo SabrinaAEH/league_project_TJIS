@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+namespace App\Models;
 
 class MediaModel
 {
@@ -19,10 +20,12 @@ class MediaModel
     {
         return $this->id;
     }
+
     public function getUrl(): string
     {
         return $this->url;
     }
+
     public function getAlt(): string
     {
         return $this->alt;
@@ -32,10 +35,12 @@ class MediaModel
     {
         $this->id = $id;
     }
+
     public function setUrl(string $url): void
     {
         $this->url = $url;
     }
+
     public function setAlt(string $alt): void
     {
         $this->alt = $alt;
