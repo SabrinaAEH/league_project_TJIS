@@ -2,9 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\MediaModel;
-use App\Models\TeamModel;
-
 class PlayerModel
 {
     private ?int $id = null;

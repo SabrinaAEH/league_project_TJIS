@@ -1,8 +1,9 @@
 <?php
 
+namespace App\Managers;
 
-use App\Config\Database;
 use PDO;
+use App\Config\Database;
 
 abstract class AbstractManager
 {
@@ -10,7 +11,8 @@ abstract class AbstractManager
 
     public function __construct()
     {
-        // ✅ Utilisation correcte de Database::getInstance()
         $this->db = Database::getInstance();
     }
 }
+?>
+
